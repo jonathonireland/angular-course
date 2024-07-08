@@ -3,10 +3,21 @@ import { Injectable } from '@angular/core';
 import { Course } from '../model/course';
 import { Observable } from 'rxjs';
 
+let counter = 0;
+
 @Injectable()
 export class CoursesService {
 
+  id: number;
+
   constructor(private http: HttpClient) {
+
+    counter ++;
+
+    this.id = counter;
+
+    console.log("create CoursesService "+ counter);
+
   }
 
 
