@@ -25,7 +25,7 @@ import {CoursesService} from '../services/courses.service';
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
 		providers: [
-			CoursesService
+			 CoursesService
 		]
 })
 export class CourseCardComponent implements OnInit {
