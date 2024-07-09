@@ -52,7 +52,9 @@ export class CourseCardComponent implements OnInit {
       this.courseEmitter.emit({...this.course, description});
     }
 
-
+		onTitleChanged(newTitle:string){
+			this.course.description = newTitle;
+		}
 
 
 }
