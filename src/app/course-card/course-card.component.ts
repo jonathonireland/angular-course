@@ -1,6 +1,7 @@
 import {
     AfterContentInit,
     AfterViewInit,
+    Attribute,
     ChangeDetectionStrategy,
     Component,
     ContentChildren,
@@ -32,6 +33,9 @@ export class CourseCardComponent implements OnInit {
     @Input()
     course: Course;
 
+		@Input()
+		type;
+
     @Input()
     cardIndex: number;
 
@@ -40,11 +44,15 @@ export class CourseCardComponent implements OnInit {
 
 
     constructor(
-    	private coursesService: CoursesService
+    	private coursesService: CoursesService,
+			//@Attribute('type') private type: string
     ) {
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+
+			console.log(this.type)
+		}
 
 
     onSaveClicked(description:string) {
