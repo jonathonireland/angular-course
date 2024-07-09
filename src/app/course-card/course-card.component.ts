@@ -9,8 +9,11 @@ import {
     InjectionToken,
     Input,
     OnInit,
+    Optional,
     Output,
     QueryList,
+    Self,
+    SkipSelf,
     ViewEncapsulation
 } from '@angular/core';
 import {Course} from '../model/course';
@@ -20,7 +23,10 @@ import {CoursesService} from '../services/courses.service';
 @Component({
     selector: 'course-card',
     templateUrl: './course-card.component.html',
-    styleUrls: ['./course-card.component.css']
+    styleUrls: ['./course-card.component.css'],
+		providers: [
+			CoursesService
+		]
 })
 export class CourseCardComponent implements OnInit {
 
@@ -35,7 +41,7 @@ export class CourseCardComponent implements OnInit {
 
 
     constructor(
-      private coursesService: CoursesService
+    	private coursesService: CoursesService
     ) {
     }
 
