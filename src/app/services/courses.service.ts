@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 let counter = 0;
 
 @Injectable(
-//   {
-//   providedIn: 'root'
-// }
+  {
+  providedIn: 'root'
+}
 )
 export class CoursesService {
 
