@@ -10,12 +10,14 @@ import {
     Inject,
     InjectionToken,
     Input,
+    OnChanges,
     OnDestroy,
     OnInit,
     Optional,
     Output,
     QueryList,
     Self,
+    SimpleChanges,
     SkipSelf,
     ViewEncapsulation
 } from '@angular/core';
@@ -27,15 +29,12 @@ import {CoursesService} from '../services/courses.service';
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-		//changeDetection: ChangeDetectionStrategy.OnPush 
+		changeDetection: ChangeDetectionStrategy.OnPush 
 })
-export class CourseCardComponent implements OnInit, OnDestroy {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges {
 
     @Input()
     course: Course;
-
-		@Input()
-		type;
 
     @Input()
     cardIndex: number;
@@ -46,7 +45,7 @@ export class CourseCardComponent implements OnInit, OnDestroy {
 
     constructor(
     	private coursesService: CoursesService,
-			//@Attribute('type') private type: string
+			@Attribute('type') private type: string
     ) {
     }
 
@@ -54,9 +53,11 @@ export class CourseCardComponent implements OnInit, OnDestroy {
 		}
 
     ngOnDestroy(){
-      console.log("ngOnDestroy");
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+      console.log("ngOnChanges")
+    }
 
     onSaveClicked(description:string) {
       this.courseEmitter.emit({...this.course, description});
