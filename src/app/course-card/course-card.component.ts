@@ -10,6 +10,7 @@ import {
     Inject,
     InjectionToken,
     Input,
+    OnDestroy,
     OnInit,
     Optional,
     Output,
@@ -28,7 +29,7 @@ import {CoursesService} from '../services/courses.service';
     styleUrls: ['./course-card.component.css'],
 		//changeDetection: ChangeDetectionStrategy.OnPush 
 })
-export class CourseCardComponent implements OnInit {
+export class CourseCardComponent implements OnInit, OnDestroy {
 
     @Input()
     course: Course;
@@ -50,9 +51,11 @@ export class CourseCardComponent implements OnInit {
     }
 
     ngOnInit() {
-
-			console.log(this.type)
 		}
+
+    ngOnDestroy(){
+      console.log("ngOnDestroy");
+    }
 
 
     onSaveClicked(description:string) {

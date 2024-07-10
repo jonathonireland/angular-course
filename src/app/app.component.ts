@@ -15,7 +15,7 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
 })
 export class AppComponent implements OnInit {
 
-  courses : Course[];
+  courses : Course[] = COURSES;
 
   
   //courses$: Observable<Course[]>;
@@ -37,13 +37,7 @@ export class AppComponent implements OnInit {
 
   onEditCourse(){
 
-    // const course = this.courses[0];
-
-    // const newCourse:any = {...course};
-
-    // newCourse.description = 'New Value!'
-
-    // this.courses[0] = newCourse;
+   this.courses = [undefined];
 
 
   }
