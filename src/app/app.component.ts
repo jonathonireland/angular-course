@@ -26,9 +26,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.coursesService.loadCourses().subscribe(courses => {
-      this.courses = courses
-    });
+    // this.coursesService.loadCourses().subscribe(
+    //   courses => 
+    //     this.courses = courses
+      
+    // );
   }
 
 

@@ -52,36 +52,75 @@ DoCheck {
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-
+    /* 
+      1
+    */
     constructor(
     	private coursesService: CoursesService,
 			@Attribute('type') private type: string
     ) {
     }
     
-    
-    
-    ngAfterViewInit(): void {
-      throw new Error('Method not implemented.');
-    }
-    
-    ngAfterContentInit(): void {
-      throw new Error('Method not implemented.');
-    }
-
-    ngOnInit() {
-		}
-
-    ngDoCheck(): void {
-      console.log("ngDoCheck");
-    }
-
-    ngOnDestroy(){
-    }
-
+    /* 
+      2 
+      change detection lifecycle hook
+    */
     ngOnChanges(changes: SimpleChanges) {
     }
 
+    /* 
+      3 
+      called once 
+    */
+    ngOnInit() {
+		}
+
+    /* 
+      4 
+      A place to run any custom change detection 
+      implementations used in rare ocasions. 
+    */
+    ngDoCheck(){
+      // console.log("ngDoCheck");
+    }
+
+    /* 
+      5 
+      - called once
+      - best used for content projection
+      - change detection lifecycle hook
+      @ContentChild (or) 
+      @ContentChildren 
+    */
+    ngAfterContentInit(){
+      // throw new Error('Method not implemented.');
+    }
+    
+    /* 
+      6 
+      called once
+      @ViewChild (or) 
+      @ViewChildren 
+      change detection lifecycle hook 
+    */
+    ngAfterViewInit() {
+      
+    }
+    
+  
+    /* 
+      last lifecycle hook
+      used to release or unsubscribe from
+      observables that the component is using
+      but the gest way to subscribe is by using an async pipe
+    */
+    ngOnDestroy(){
+    }
+
+ 
+    /* 
+      change detection lifecycle hook
+    */
     ngAfterContentChecked(): void {
       console.log("ngAfterContentChecked");
 
@@ -92,8 +131,12 @@ DoCheck {
       //this.course.iconUrl = '';
     }
 
-    ngAfterViewChecked(): void {
-      console.log('ngAfterViewChecked');
+    /*
+      called for making changes to 
+      the DOM 
+    */
+    ngAfterViewChecked(){
+      // console.log('ngAfterViewChecked');
     }
 
     onSaveClicked(description:string) {
