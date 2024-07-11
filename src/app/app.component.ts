@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
   courses : Course[] = COURSES;
 
+  coursesTotal = this.courses.length;
+
   
   //courses$: Observable<Course[]>;
 
