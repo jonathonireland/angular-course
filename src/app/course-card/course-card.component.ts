@@ -1,6 +1,7 @@
 import {
   AfterContentChecked,
     AfterContentInit,
+    AfterViewChecked,
     AfterViewInit,
     Attribute,
     ChangeDetectionStrategy,
@@ -30,9 +31,9 @@ import {CoursesService} from '../services/courses.service';
     selector: 'course-card',
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
-		changeDetection: ChangeDetectionStrategy.OnPush 
 })
-export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterContentChecked {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, 
+AfterContentChecked, AfterViewChecked {
 
     @Input()
     course: Course;
@@ -57,7 +58,6 @@ export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterC
     }
 
     ngOnChanges(changes: SimpleChanges) {
-      console.log("ngOnChanges")
     }
 
     ngAfterContentChecked(): void {
@@ -68,6 +68,10 @@ export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterC
       this.course.category = "ADVANCED";
 
       //this.course.iconUrl = '';
+    }
+
+    ngAfterViewChecked(): void {
+      console.log('ngAfterViewChecked');
     }
 
     onSaveClicked(description:string) {
