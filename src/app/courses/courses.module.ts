@@ -5,22 +5,25 @@ import { CourseImageComponent } from './course-image/course-image.component';
 import { CoursesService } from './courses.service';
 import { HighlightedDirective } from './directives/highlighted.directive';
 import { NgxUnlessDirective } from './directives/ngx-unless.directive';
+import { FitlerByCategoryPipe } from './filter-by-category.pipe';
 
 
 
 @NgModule({
+  imports: [
+    CommonModule
+  ],
   declarations: [
     CourseCardComponent,
     CourseImageComponent,
     HighlightedDirective,
-    NgxUnlessDirective
-  ],
-  imports: [
-    CommonModule
+    NgxUnlessDirective,
+    FitlerByCategoryPipe
   ],
   exports: [
     CourseCardComponent,
-    CourseImageComponent
+    CourseImageComponent,
+    FitlerByCategoryPipe
   ],
   providers:[
     CoursesService

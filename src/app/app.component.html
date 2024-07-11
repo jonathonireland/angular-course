@@ -11,13 +11,13 @@
 
 <div>
 
-  <div class="courses" *ngIf="courses[0] as course">
+  <div class="courses">
 
     <course-card 
-      *ngFor="let course of courses "
+      *ngFor="let course of ( courses | filterByCategory: 'ADVANCED' ) "
       (courseChanged)="save($event)"
       type="beginner"
-      [course]="course">
+      [course]="course"> 
 
       <course-image [src]="course.iconUrl"></course-image>
 

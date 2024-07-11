@@ -17,13 +17,10 @@ export class CoursesService {
   constructor(private http: HttpClient) {
 
     counter ++;
-
     this.id = counter;
-
     console.log("create CoursesService "+ counter);
   
   }
-
 
 
   loadCourses(): Observable<Course[]>{
