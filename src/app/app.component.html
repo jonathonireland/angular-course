@@ -21,7 +21,7 @@
     <h4 i18n="welcome message.|Greet the user at the beginning of the course.@@welcomeMessage">Welcome to the Angular Core Deep Dive Course</h4>
 
     <course-card 
-      *ngFor="let course of ( courses | filterByCategory: 'ADVANCED' ) "
+      *ngFor="let course of courses"
       (courseChanged)="save($event)"
       type="beginner"
       [course]="course"> 
