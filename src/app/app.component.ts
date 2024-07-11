@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Do
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CourseCardComponent} from './courses/course-card/course-card.component';
-import {HighlightedDirective} from './courses/highlighted.directive';
+import {HighlightedDirective} from './courses/directives/highlighted.directive';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CoursesService } from './courses/courses.service';

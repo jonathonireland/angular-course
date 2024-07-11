@@ -1,5 +1,5 @@
 import {Directive, EventEmitter, Host, HostBinding, HostListener, Input, Output} from '@angular/core';
-import { CoursesService } from './courses.service';
+import { CoursesService } from '../courses.service';
 
 @Directive({
     selector: '[highlighted]',
