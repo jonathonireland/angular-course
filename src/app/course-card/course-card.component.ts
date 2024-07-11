@@ -7,6 +7,7 @@ import {
     ChangeDetectionStrategy,
     Component,
     ContentChildren,
+    DoCheck,
     ElementRef,
     EventEmitter,
     Inject,
@@ -32,8 +33,15 @@ import {CoursesService} from '../services/courses.service';
     templateUrl: './course-card.component.html',
     styleUrls: ['./course-card.component.css'],
 })
-export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, 
-AfterContentChecked, AfterViewChecked {
+export class CourseCardComponent implements 
+OnInit, 
+OnDestroy, 
+OnChanges, 
+AfterContentChecked, 
+AfterViewChecked,
+AfterContentInit,
+AfterViewInit,
+DoCheck {
 
     @Input()
     course: Course;
@@ -50,9 +58,23 @@ AfterContentChecked, AfterViewChecked {
 			@Attribute('type') private type: string
     ) {
     }
+    
+    
+    
+    ngAfterViewInit(): void {
+      throw new Error('Method not implemented.');
+    }
+    
+    ngAfterContentInit(): void {
+      throw new Error('Method not implemented.');
+    }
 
     ngOnInit() {
 		}
+
+    ngDoCheck(): void {
+      console.log("ngDoCheck");
+    }
 
     ngOnDestroy(){
     }
