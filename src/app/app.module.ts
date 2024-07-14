@@ -4,22 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { CoursesModule } from './courses/courses.module';
+import { CourseTitleComponent } from './course-title/course-title.component';
 
 @NgModule({ 
-    declarations: [
-        AppComponent,
-    ],
-    bootstrap: [
-        AppComponent
-    ], 
+    declarations: [],
     imports: [
         BrowserModule,
-        BrowserAnimationsModule,
-        CoursesModule
+        BrowserAnimationsModule
     ], 
-    providers: [
-        provideHttpClient(withInterceptorsFromDi())
-    ] 
-    })
+    providers: [],
+    bootstrap: []
+})
 export class AppModule { }

@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, ElementRef, Inject, InjectionToken, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, ElementRef, Inject, InjectionToken, Injector, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CourseCardComponent} from './courses/course-card/course-card.component';
@@ -7,11 +7,21 @@ import {Observable} from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CoursesService } from './courses/courses.service';
 import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
+import { createCustomElement } from '@angular/elements';
+import { CourseTitleComponent } from './course-title/course-title.component';
+import { CourseImageComponent } from './courses/course-image/course-image.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  imports: [
+    CourseCardComponent,
+    CourseImageComponent,
+    NgFor
+  ],
+  standalone:true
 })
 export class AppComponent implements OnInit {
 
@@ -24,15 +34,13 @@ export class AppComponent implements OnInit {
 
   constructor(
     private coursesService: CoursesService,
-    @Inject (CONFIG_TOKEN) private config: AppConfig) {
+    @Inject (CONFIG_TOKEN) private config: AppConfig,
+    private injector: Injector) {
   }
 
   ngOnInit() {
-      // this.coursesService.loadCourses().subscribe(
-      //   courses => 
-      //     this.courses = courses
-        
-      // );
+    const htmlElement = createCustomElement(CourseTitleComponent,{injector:this.injector});
+    customElements.define('course-title',htmlElement);
   }
 
 
