@@ -25,7 +25,12 @@ import { NgFor } from '@angular/common';
 })
 export class AppComponent implements OnInit {
 
+
   courses : Course[] = COURSES;
+
+  performPrefetch: boolean = false;
+
+  display: boolean = false;
 
   coursesTotal = this.courses.length;
 
@@ -44,9 +49,6 @@ export class AppComponent implements OnInit {
   }
 
 
-
-
-
   onEditCourse(){
 
     const course = this.courses[0];
@@ -57,7 +59,6 @@ export class AppComponent implements OnInit {
     };
     this.courses[0] = newCourse;
 
-
   }
 
   save(course:Course){
@@ -66,4 +67,13 @@ export class AppComponent implements OnInit {
         () => console.log('Course Saved!')
       );
   }
+
+  onPrefetch() {
+    this.performPrefetch = true;
+  }
+
+  onDisplay() {
+    this.display = true;
+  }
+
 }

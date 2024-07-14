@@ -6,13 +6,14 @@
 </div>
 
 <div #triggerDisplay style="border:5px solid red; min-height:200px; margin:10px;padding:10px;" class="demo-triggers">
-  <button #display>Trigger Display</button>
+  <button (click)="onPrefetch()">Trigger Prefetch</button>
+  <button (click)="onDisplay()">Trigger Display</button>
 </div>
 
 <div>
 <!-- default: on idle is  trigger; prefetch on idle -->
 <!-- prefetch of bundle comes first, then displays the defered bundle -->
-  @defer(on interaction(display); prefetch on hover(triggerDisplay)) {
+  @defer(when display; prefetch when performPrefetch) {
     <div class="courses">
 
       @for(course of courses; track $index; let count = $count) {
