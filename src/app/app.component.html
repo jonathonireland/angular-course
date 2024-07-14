@@ -6,8 +6,8 @@
 </div>
 
 <div>
-
-  @defer {
+<!-- default: on idle is  trigger; prefetch on idle -->
+  @defer(on immediate; prefetch on immediate) {
     <div class="courses">
 
       @for(course of courses; track $index; let count = $count) {
