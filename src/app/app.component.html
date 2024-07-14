@@ -5,16 +5,21 @@
 
 </div>
 
+<div style=" border:5px solid red; min-height: 900px; margin: 10px; "></div>
+<h1 #title>Trigger Viewport</h1>
+
+
 <div>
 <!-- default: on idle is  trigger; prefetch on idle -->
 <!-- prefetch of bundle comes first, then displays the defered bundle -->
-  @defer(on timer(15s); prefetch on timer(10s)) {
+  @defer(on viewport(title); prefetch on idle) {
     <div class="courses">
 
       @for(course of courses; track $index; let count = $count) {
 
       <course-card 
         (courseChanged)="save($event)"
+        [cardIndex]="$index"
         type="beginner"
         [course]="course"> 
 
