@@ -11,9 +11,7 @@
   <div class="courses">
     <div>Counter value: {{counter()}}</div>
 
-    <div>Course Title: {{course().title}}</div>
-
-    <div>Courses: {{ courses().join(", ") }}</div>
+    <div>Derived Value: {{ derivedCounter() }}</div>
 
     <button (click)="increment()">Increment</button>
    
