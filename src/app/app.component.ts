@@ -12,14 +12,11 @@ export class AppComponent  {
 
   counter = signal(0);
 
-  
-  //courses$: Observable<Course[]>;
-
   constructor() {
   }
 
   increment(){
-    this.counter.set(this.counter() + 1);
+    this.counter.update(val => val + 1);
   }
 
 
