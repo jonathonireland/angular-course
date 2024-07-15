@@ -9,18 +9,28 @@ import { NgFor } from '@angular/common';
 })
 export class AppComponent  {
 
-
   counter = signal(0);
 
+  multiplier: number = 0;
+
   derivedCounter = computed(() => {
+    
     const counter = this.counter();
 
-    return counter * 10;
+    if(this.multiplier >= 10){
+      
+      return counter * 10;
+
+    } else {
+      return 0;
+    }
   });
 
   increment(){
     this.counter.update(val => val + 1);
   }
 
-
+  incrementMultiplier() {
+    this.multiplier++;
+  }
 }
