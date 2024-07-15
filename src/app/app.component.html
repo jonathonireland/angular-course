@@ -9,13 +9,11 @@
 <!-- default: on idle is  trigger; prefetch on idle -->
 <!-- prefetch of bundle comes first, then displays the defered bundle -->
   <div class="courses">
-    <div>Counter value: {{counter()}}</div>
+    <div>Counter value: {{counterService.counter()}}</div>
 
     <div>Derived Value: {{ derivedCounter() }}</div>
 
     <button (click)="increment()">Increment</button>
-
-    <button (click)="onCleanup()"></button>
    
   </div>
 
